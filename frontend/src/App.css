@@ -1,42 +1,96 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset box-sizing for consistency */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn {
+  padding: 0.5rem 0.9rem;
+  background-color: #636cff;
+  color: #fff;
+  border: none;
+  border-radius: 5%;
+  transition: 0.3s;
+  font-weight: 700;
+  border: 0.1rem #636cff solid;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  background-color: #fff;
+  color: #636cff;
+  border: 0.1rem #636cff solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  border-top: 0.1rem solid #636cff;
+  border-right: 0.1rem solid #636cff;
+  border-left: 0.1rem solid #636cff;
 }
 
-.card {
-  padding: 2em;
+.todo-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Align items to start to reduce space */
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding: 0.5rem 0; /* Reduced padding */
+  margin: 0 2rem; /* Reduced margins to minimize white space */
 }
 
-.read-the-docs {
-  color: #888;
+.todo-item span {
+  text-align: start;
+  margin-left: 1rem;
+  flex-grow: 1; /* Allow text to expand */
+}
+
+.todo-item button {
+  margin-right: 1rem;
+}
+
+/* Hide default checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox */
+.custom-checkbox {
+  position: relative;
+  display: inline-flex; /* Use flex to center content */
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center; /* Center the pseudo-element */
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-left: 1rem;
+}
+
+/* Style for checked state */
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: "✔";
+  color: #636cff;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Hover effect */
+.custom-checkbox:hover {
+  border-color: #666;
+}
+
+/* Disabled state */
+input[type="checkbox"]:disabled + .custom-checkbox {
+  background: #f0f0f0;
+  border-color: #ccc;
+  cursor: not-allowed;
 }
