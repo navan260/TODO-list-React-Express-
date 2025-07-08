@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 
 function TodoList({tasks, handleDelete, handleStatusChange}) {
-    console.log(handleDelete);
     return ( 
         
         <div className='tasks' style={{margin:'2rem auto', backgroundColor:'white', padding:'0'}} >
