@@ -19,7 +19,7 @@ A simple and efficient to-do list application built with React (frontend) and Ex
 Clone the repository and install dependencies for both backend and frontend:
 
 ```bash
-git clone https://github.com/yourusername/1todolist.git
+git clone https://github.com/navan260/TODO-list-React-Express-.git
 cd 1todolist
 npm run install
 ```
