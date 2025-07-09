@@ -1,10 +1,23 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Task from './models/task.js';
+import cors from 'cors';
 
 const app = express()
 const port = 3500;
 
+
+const allowedOrigins = ['http://localhost:5173'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json())
 
 main().catch(err => console.log(err));
@@ -45,7 +58,6 @@ app.delete('/tasks/:id', async (req, res) => {
 app.patch('/tasks/:id', async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
-
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       id,
