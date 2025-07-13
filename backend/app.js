@@ -12,7 +12,7 @@ const app = express()
 const port = 3500;
 
 
-const allowedOrigins = [process.env.FRONTEND_URL || 'http://localhost:5173'];
+const allowedOrigins = [process.env.FRONTEND_URL || 'https://todo-list-react-express-53a1m7hbj-navan260s-projects.vercel.app' ,'http://localhost:5173'];
 
 app.use(cors({
   origin: (origin, callback) => {
