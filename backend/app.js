@@ -15,16 +15,17 @@ const port = 3500;
 const allowedOrigins = [process.env.FRONTEND_URL || 'https://todo-list-react-express-53a1m7hbj-navan260s-projects.vercel.app' ,'http://localhost:5173'];
 console.log(process.env.FRONTEND_URL);
 console.log(allowedOrigins);
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   }
-// }));
-app.use(cors({}));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log(`CORS error: Origin ${origin} not allowed`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+// app.use(cors({}));
 app.use(express.json())
 
 main().catch(err => console.log(err));
