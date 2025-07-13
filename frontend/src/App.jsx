@@ -22,7 +22,7 @@ function App() {
                 });
                 const data = await content.json();
                 if(content.status === 401){
-                    alert(response.statusText);
+                    alert(content.statusText);
                     localStorage.removeItem('token');
                     setToken(null);
                     navigate('/login');
