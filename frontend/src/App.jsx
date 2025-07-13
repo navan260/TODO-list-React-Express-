@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import TodoList from './TodoList.jsx'
-import './app.css'
+import './App.css'
 import {v4 as uuidv4} from 'uuid';
 import { useNavigate } from 'react-router-dom';
 function App() {
